@@ -12,8 +12,31 @@ The steps of project implementation:
 
 ![Image-01-IntelliJ](images/Img-01-IntelliJ.png)
 
+2. Add Auth0 java-jwt dependency obtained from
+   [Maven Repository](https://mvnrepository.com/artifact/com.auth0/java-jwt/4.4.0)
+   for the `build.gradle` (or `pom.xml`) file:
+
+```groovy
+implementation group: 'com.auth0', name: 'java-jwt', version: '4.4.0'
+```
+or
+```groovy
+implementation 'com.auth0:java-jwt:4.4.0'
+```
+or
+```xml
+<dependency>
+    <groupId>com.auth0</groupId>
+    <artifactId>java-jwt</artifactId>
+    <version>4.4.0</version>
+</dependency>
+```
+
 
 ## References
+Maven Repository - Auth0 - Java JWT:
+https://mvnrepository.com/artifact/com.auth0/java-jwt/4.4.0
+
 Fernanda Kipper | Dev - PROJETO FULLSTACK COM LOGIN USANDO SPRING SECURITY + JWT | BACKEND:
 https://www.youtube.com/watch?v=tJCyNV1G0P4
 
