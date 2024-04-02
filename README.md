@@ -32,6 +32,31 @@ or
 </dependency>
 ```
 
+3. Add datasource, jpa and h2 settings in `application.properties`:
+
+```properties
+# ============================================================
+#           APPLICATION
+# ============================================================
+spring.application.name=Java-Spring-JJWT
+# ===================================================================
+#                   DATASOURCE AND H2 DATABASE
+# ===================================================================
+# H2 - Datasource
+spring.datasource.url=jdbc:h2:mem:jjwtapp
+spring.datasource.driverClassName=org.h2.Driver
+spring.datasource.username=admin
+spring.datasource.password=admin
+# H2 - Console
+spring.h2.console.enabled=true
+spring.h2.console.path=/h2
+# Hibernate
+spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+#spring.jpa.hibernate.ddl-auto=create-drop
+spring.jpa.hibernate.ddl-auto=update
+# http://localhost:8080/h2/
+```
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
