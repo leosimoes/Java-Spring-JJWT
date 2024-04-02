@@ -91,6 +91,16 @@ api.security.token.secret=chaveSecreta
 
 ![Img-05-JJWTService](images/Img-05-JJWTService.png)
 
+9. Criar Classe `JJWTUserDetailsService`:
+- no pacote `security`;
+- implementa `UserDetailsService`;
+- com atributo `JJWTUserRepository jjwtUserRepository`;
+- com um construtor com o atributo injetado;
+- com um método público `UserDetails loadUserByUsername(String username)`;
+- com um método privado `Collection<? extends GrantedAuthority> mapRolesToAuthorities(Set<Role> roles)`.
+
+![Img-06-JJWTUserDetailsService](images/Img-06-JJWTUserDetailsService.png)
+
 
 ## Referências
 Maven Repository - Auth0 - Java JWT:
