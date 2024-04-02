@@ -35,9 +35,9 @@ ou
 3. Adicionar configurações de datasource, jpa e h2 em `application.properties`:
 
 ```properties
-# ============================================================
-#           APPLICATION
-# ============================================================
+# ===================================================================
+#                   APPLICATION
+# ===================================================================
 spring.application.name=Java-Spring-JJWT
 # ===================================================================
 #                   DATASOURCE AND H2 DATABASE
@@ -73,6 +73,23 @@ spring.jpa.hibernate.ddl-auto=update
 - tem o método `Optional<JJWTUser> findByLogin(String login)`;
 
 ![Img-04-JJWTRepository](images/Img-04-JJWTRepository.png)
+
+7. Adicionar um valor para `api.security.token.secret` em `application.properties`:
+
+```properties
+# ===================================================================
+#                   SECURITY
+# ===================================================================
+api.security.token.secret=chaveSecreta
+```
+
+8. Adicionar Classe `TokenService`:
+- no pacote `security`;
+- com os atributos `secret`, `ISSUER`, `EXPIRATION_HOURS` e `ZONE_OFFSET`;
+- com os métodos privados `Instant calculateExpiration()` e `Algorithm getAlgorithm()`;
+- com métodos públicos `String generateToken(JJWTUser jjwtUser)` e `String validateToken(String token)`.
+
+![Img-05-JJWTService](images/Img-05-JJWTService.png)
 
 
 ## Referências
