@@ -57,6 +57,10 @@ spring.jpa.hibernate.ddl-auto=update
 # http://localhost:8080/h2/
 ```
 
+4. Add Enum `Role` which can be `ROLE_USER` or `ROLE_ADMIN`:
+
+![Img-02-Role](images/Img-02-Role.png)
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
