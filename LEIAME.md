@@ -67,6 +67,13 @@ spring.jpa.hibernate.ddl-auto=update
 
 ![Img-03-JJWTUser](images/Img-03-JJWTUser.png)
 
+6. Adicionar Interface `JJWTUserRepository`:
+- anotada com `@Repository`;
+- extends `JpaRepository<JJWTUser, String>`;
+- tem o método `Optional<JJWTUser> findByLogin(String login)`;
+
+![Img-04-JJWTRepository](images/Img-04-JJWTRepository.png)
+
 
 ## Referências
 Maven Repository - Auth0 - Java JWT:
