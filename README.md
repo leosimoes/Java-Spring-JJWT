@@ -61,6 +61,12 @@ spring.jpa.hibernate.ddl-auto=update
 
 ![Img-02-Role](images/Img-02-Role.png)
 
+5. Add Class `JJWTUser`:
+- annotated with @Entity, @Table(name="jjwt_users"), @Data, @NoArgsConstructor, @AllArgsConstructor;
+- with attributes id, name, login, password, roles.
+
+![Img-03-JJWTUser](images/Img-03-JJWTUser.png)
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
