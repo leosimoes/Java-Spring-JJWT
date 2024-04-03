@@ -3,6 +3,8 @@ package com.app.jjwt.security;
 import com.app.jjwt.entities.JJWTUser;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTCreationException;
+import com.auth0.jwt.exceptions.JWTVerificationException;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -31,11 +33,16 @@ public class JJWTTokenService {
     }
 
     public String validateToken(String token){
-        return JWT.require(this.getAlgorithm())
-                .withIssuer(this.ISSUER)
-                .build()
-                .verify(token)
-                .getSubject();
+        try {
+            String login = JWT.require(this.getAlgorithm())
+                    .withIssuer(this.ISSUER)
+                    .build()
+                    .verify(token)
+                    .getSubject();
+            return login;
+        } catch (JWTVerificationException exception) {
+            return null;
+        }
     }
 
     private Instant calculateExpiration(){
@@ -47,5 +54,4 @@ public class JJWTTokenService {
     private Algorithm getAlgorithm(){
         return Algorithm.HMAC256(this.secret);
     }
-
 }

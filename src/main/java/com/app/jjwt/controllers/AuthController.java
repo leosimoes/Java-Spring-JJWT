@@ -7,10 +7,7 @@ import com.app.jjwt.dtos.RegisterResponseDTO;
 import com.app.jjwt.services.AuthService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/auth")
@@ -33,6 +30,18 @@ public class AuthController {
     public ResponseEntity<RegisterResponseDTO> register(@RequestBody RegisterRequestDTO registerRequestDTO){
         RegisterResponseDTO registerResponseDTO = this.authService.register(registerRequestDTO);
         return ResponseEntity.ok(registerResponseDTO);
+    }
+
+    @GetMapping("/users")
+    public ResponseEntity<String> authenticatedUsers(){
+        String msg = "User has been authenticated and has the role USER";
+       return ResponseEntity.ok(msg);
+    }
+
+    @GetMapping("/admins")
+    public ResponseEntity<String> authenticatedAdmins(){
+        String msg = "User has been authenticated and has the role ADMIN";
+        return ResponseEntity.ok(msg);
     }
 
 }

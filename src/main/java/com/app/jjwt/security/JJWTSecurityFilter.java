@@ -35,7 +35,6 @@ public class JJWTSecurityFilter extends OncePerRequestFilter {
         var login = this.jjwtTokenService.validateToken(token);
 
         if(login != null){
-            // Checar depois
             var user= this.jjwtUserDetailsService.loadUserByUsername(login);
             var authentication = new UsernamePasswordAuthenticationToken(
                     user,
