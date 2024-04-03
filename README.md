@@ -146,6 +146,18 @@ api.security.token.secret=chaveSecreta
 
 ![Img-10-AuthServiceImpl](images/Img-10-AuthServiceImpl.png)
 
+15. Add `AuthController` Class:
+- in the `controllers` package;
+- annotated with `@RestController` and `@RequestMapping("/auth")`;
+- with the `AuthService authService` attribute;
+- with a constructor with the injected attribute;
+- with the methods:
+    * `ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequestDTO)` to `@PostMapping("/login")`;
+    * `ResponseEntity<RegisterResponseDTO> register(@RequestBody RegisterRequestDTO registerRequestDTO)` for
+      `@PostMapping("/register")`.
+
+![Img-11-AuthController](images/Img-11-AuthController.png)
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
