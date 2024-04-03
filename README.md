@@ -112,6 +112,16 @@ api.security.token.secret=chaveSecreta
 
 ![Img-07-JJWTSecurityFilter](images/Img-07-JJWTSecurityFilter.png)
 
+11. Add `JJWTSecurityConfig` Class:
+- in the `security` package;
+- annotated with `@Configuration`, `@EnableWebSecurity`;
+- with attributes `jjwtSecurityFilter` and `jjwtUserDetailsService`;
+- with a constructor with injected attributes;
+- with the public methods `SecurityFilterChain securityFilterChain`, `PasswordEncoder passwordEncoder()`,
+  `AuthenticationManager authenticationManager` annotated with `@Bean`;
+
+![Img-08-JJWTSecurityConfig](images/Img-08-JJWTSecurityConfig.png)
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
