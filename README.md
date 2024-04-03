@@ -122,6 +122,14 @@ api.security.token.secret=chaveSecreta
 
 ![Img-08-JJWTSecurityConfig](images/Img-08-JJWTSecurityConfig.png)
 
+12. Add records DTOs:
+- in the `dtos` package;
+- `LoginRequestDTO` contains `email` and `password`;
+- `RegisterRequestDTO` contains `name`, `email` and `password`;
+- `RegisterResponseDTO` contains `name` and `token`.
+
+![Img-09-RequestResponseDTO](images/Img-09-RequestResponseDTO.png)
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
