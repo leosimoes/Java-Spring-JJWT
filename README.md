@@ -158,13 +158,16 @@ api.security.token.secret=chaveSecreta
 
 ![Img-11-AuthController](images/Img-11-AuthController.png)
 
+16. Add routes and their permissions in the `securityFilterChain` method of `JJWTSecurityConfig`.
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
 https://mvnrepository.com/artifact/com.auth0/java-jwt/4.4.0
 
 Fernanda Kipper | Dev - PROJETO FULLSTACK COM LOGIN USANDO SPRING SECURITY + JWT | BACKEND:
-https://www.youtube.com/watch?v=tJCyNV1G0P4
+https://www.youtube.com/watch?v=tJCyNV1G0P4  |  
+https://github.com/Fernanda-Kipper/login-app-backend/tree/main
 
 Fernanda Kipper | Dev - Autenticação e Autorização com Spring Security, JWT Tokens e Roles:
 https://www.youtube.com/watch?v=5w-YCcOjPD0
