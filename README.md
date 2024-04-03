@@ -83,13 +83,13 @@ spring.jpa.hibernate.ddl-auto=update
 api.security.token.secret=chaveSecreta
 ```
 
-8. Add `TokenService` Class:
+8. Add `JJWTTokenService` Class:
 - in the `security` package;
 - with the attributes `secret`, `ISSUER`, `EXPIRATION_HOURS` and `ZONE_OFFSET`;
 - with the private methods `Instant calculateExpiration()` and `Algorithm getAlgorithm()`;
 - with public methods `String generateToken(JJWTUser jjwtUser)` and `String validateToken(String token)`.
 
-![Img-05-JJWTService](images/Img-05-JJWTService.png)
+![Img-05-JJWTTokenService](images/Img-05-JJWTTokenService.png)
 
 9. Create Class `JJWTUserDetailsService`:
 - in the `security` package;
