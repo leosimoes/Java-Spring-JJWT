@@ -1,4 +1,4 @@
 package com.app.jjwt.dtos;
 
-public record RegisterRequestDTO (String name, String email, String password) {
+public record RegisterRequestDTO (String name, String login, String password) {
 }

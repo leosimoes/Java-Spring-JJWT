@@ -124,11 +124,27 @@ api.security.token.secret=chaveSecreta
 
 12. Adicionar records DTOs:
 - no pacote `dtos`;
-- `LoginRequestDTO` contém `email` e `password`;
-- `RegisterRequestDTO` contém `name`, `email` e `password`;
+- `LoginRequestDTO` contém `login` e `password`;
+- `LoginResponseDTO` contém `name` e `token`.
+- `RegisterRequestDTO` contém `name`, `login` e `password`;
 - `RegisterResponseDTO` contém `name` e `token`.
 
 ![Img-09-RequestResponseDTO](images/Img-09-RequestResponseDTO.png)
+
+13. Adicionar Interface `AuthService`:
+- no pacote `services`;
+- com métodos `LoginResponseDTO login(LoginRequestDTO loginRequestDTO)` e 
+  `RegisterResponseDTO register(RegisterRequestDTO registerRequestDTO)`.
+
+14. Adicionar Classe `AuthServiceImpl`:
+- no pacote `services`;
+- anotada com `@Service`;
+- implementa `AuthService`;
+- com atributos `PasswordEncoder passwordEncoder`, `JJWTUserRepository jjwtUserRepository` e 
+  `JJWTTokenService jjwtTokenService`;
+- com um construtor com os atributos injetados;
+
+![Img-10-AuthServiceImpl](images/Img-10-AuthServiceImpl.png)
 
 
 ## Referências
