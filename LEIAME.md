@@ -1,6 +1,8 @@
 # Spring Security - Java JSON Web Token (JJWT)
 Projeto em Java com Spring e Gradle para autenticação usando Java JSON Web Token (JJWT).
 
+![Img-14-UML-Classes-Total](images/Img-14-UML-Classes-Total.png)
+
 
 ## Passos
 Os passos da implementação do projeto:
