@@ -44,4 +44,10 @@ public class AuthController {
         return ResponseEntity.ok(msg);
     }
 
+    @GetMapping("/accessDenied")
+    public ResponseEntity<String> accessDenied(){
+        String msg = "User is not authorized to access the requested page";
+        return ResponseEntity.ok(msg);
+    }
+
 }

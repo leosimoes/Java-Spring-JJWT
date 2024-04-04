@@ -51,7 +51,7 @@ spring.datasource.password=admin
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2
 # Hibernate
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+# spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 #spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.hibernate.ddl-auto=update
 # http://localhost:8080/h2/
@@ -62,8 +62,8 @@ spring.jpa.hibernate.ddl-auto=update
 ![Img-02-Role](images/Img-02-Role.png)
 
 5. Adicionar Classe `JJWTUser`:
-- anotada com @Entity, @Table(name="jjwt_users"), @Data, @NoArgsConstructor, @AllArgsConstructor;
-- com atributos id, name, login, password, roles.
+- anotada com `@Entity`, `@Table(name="jjwt_users")`, `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`;
+- com atributos `id`, `name`, `login`, `password`, `roles`.
 
 ![Img-03-JJWTUser](images/Img-03-JJWTUser.png)
 
@@ -91,7 +91,7 @@ api.security.token.secret=chaveSecreta
 
 ![Img-05-JJWTTokenService](images/Img-05-JJWTTokenService.png)
 
-9. Criar Classe `JJWTUserDetailsService`:
+9. Adicionar Classe `JJWTUserDetailsService`:
 - no pacote `security`;
 - implementa `UserDetailsService`;
 - com atributo `JJWTUserRepository jjwtUserRepository`;
@@ -101,7 +101,7 @@ api.security.token.secret=chaveSecreta
 
 ![Img-06-JJWTUserDetailsService](images/Img-06-JJWTUserDetailsService.png)
 
-10. Criar Classe `JJWTSecurityFilter`
+10. Adicionar Classe `JJWTSecurityFilter`:
 - no pacote `security`;
 - anotada com `@Component`;
 - estende `OncePerRequestFilter`;
@@ -125,7 +125,7 @@ api.security.token.secret=chaveSecreta
 12. Adicionar records DTOs:
 - no pacote `dtos`;
 - `LoginRequestDTO` contém `login` e `password`;
-- `LoginResponseDTO` contém `name` e `token`.
+- `LoginResponseDTO` contém `name` e `token`;
 - `RegisterRequestDTO` contém `name`, `login` e `password`;
 - `RegisterResponseDTO` contém `name` e `token`.
 
@@ -154,7 +154,9 @@ api.security.token.secret=chaveSecreta
 - com os métodos: 
   * `ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequestDTO)` para `@PostMapping("/login")`;
   * `ResponseEntity<RegisterResponseDTO> register(@RequestBody RegisterRequestDTO registerRequestDTO)` para 
-    `@PostMapping("/register")`.
+    `@PostMapping("/register")`;
+  * `ResponseEntity<String> authenticatedUsers()` para `@GetMapping("/users")`;
+  * `ResponseEntity<String> authenticatedAdmins()` para `@GetMapping("/admins")`.
 
 ![Img-11-AuthController](images/Img-11-AuthController.png)
 

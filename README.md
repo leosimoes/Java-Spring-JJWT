@@ -51,19 +51,19 @@ spring.datasource.password=admin
 spring.h2.console.enabled=true
 spring.h2.console.path=/h2
 # Hibernate
-spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
+# spring.jpa.database-platform=org.hibernate.dialect.H2Dialect
 #spring.jpa.hibernate.ddl-auto=create-drop
 spring.jpa.hibernate.ddl-auto=update
 # http://localhost:8080/h2/
 ```
 
-4. Add Enum `Role` which can be `ROLE_USER` or `ROLE_ADMIN`:
+4. Add `Role` Enum which can be `ROLE_USER` or `ROLE_ADMIN`:
 
 ![Img-02-Role](images/Img-02-Role.png)
 
-5. Add Class `JJWTUser`:
-- annotated with @Entity, @Table(name="jjwt_users"), @Data, @NoArgsConstructor, @AllArgsConstructor;
-- with attributes id, name, login, password, roles.
+5. Add `JJWTUser` Class:
+- annotated with `@Entity`, `@Table(name="jjwt_users")`, `@Data`, `@NoArgsConstructor`, `@AllArgsConstructor`;
+- with attributes `id`, `name`, `login`, `password`, `roles`.
 
 ![Img-03-JJWTUser](images/Img-03-JJWTUser.png)
 
@@ -91,7 +91,7 @@ api.security.token.secret=chaveSecreta
 
 ![Img-05-JJWTTokenService](images/Img-05-JJWTTokenService.png)
 
-9. Create Class `JJWTUserDetailsService`:
+9. Add `JJWTUserDetailsService` Class:
 - in the `security` package;
 - implements `UserDetailsService`;
 - with attribute `JJWTUserRepository jjwtUserRepository`;
@@ -101,7 +101,7 @@ api.security.token.secret=chaveSecreta
 
 ![Img-06-JJWTUserDetailsService](images/Img-06-JJWTUserDetailsService.png)
 
-10. Create `JJWTSecurityFilter` Class
+10. Add `JJWTSecurityFilter` Class:
 - in the `security` package;
 - annotated with `@Component`;
 - extends `OncePerRequestFilter`;
@@ -125,7 +125,7 @@ api.security.token.secret=chaveSecreta
 12. Add records DTOs:
 - in the `dtos` package;
 - `LoginRequestDTO` contains `login` and `password`;
-- `LoginResponseDTO` contains `name` and `token`.
+- `LoginResponseDTO` contains `name` and `token`;
 - `RegisterRequestDTO` contains `name`, `login` and `password`;
 - `RegisterResponseDTO` contains `name` and `token`.
 
@@ -155,7 +155,9 @@ api.security.token.secret=chaveSecreta
     * `ResponseEntity<LoginResponseDTO> login(@RequestBody LoginRequestDTO loginRequestDTO)` to `@PostMapping("/login")`;
     * `ResponseEntity<RegisterResponseDTO> register(@RequestBody RegisterRequestDTO registerRequestDTO)` for
       `@PostMapping("/register")`.
-
+    * `ResponseEntity<String> authenticatedUsers()` for `@GetMapping("/users")`;
+    * `ResponseEntity<String> authenticatedAdmins()` for `@GetMapping("/admins")`.
+  
 ![Img-11-AuthController](images/Img-11-AuthController.png)
 
 16. Add routes and their permissions in the `securityFilterChain` method of `JJWTSecurityConfig`.

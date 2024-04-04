@@ -39,10 +39,12 @@ public class JJWTSecurityConfig {
                         .requestMatchers("/h2").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                         .requestMatchers(HttpMethod.POST, "/auth/register").permitAll()
+                        .requestMatchers("/auth/accessDenied").permitAll()
                         .requestMatchers(HttpMethod.GET, "/auth/users").hasRole("USER")
                         .requestMatchers(HttpMethod.GET, "/auth/admins").hasRole("ADMIN")
                         .anyRequest().authenticated()
                 )
+                .exceptionHandling(ex -> ex.accessDeniedPage("/auth/accessDenied"))
                 .addFilterBefore(jjwtSecurityFilter, UsernamePasswordAuthenticationFilter.class);
 
         return http.build();
