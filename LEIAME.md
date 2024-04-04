@@ -162,6 +162,12 @@ api.security.token.secret=chaveSecreta
 
 16. Adicionar rotas e suas permissões no método `securityFilterChain` de `JJWTSecurityConfig`.
 
+17. Testar rotas, autenticação e autorização com POSTMAN:
+
+![Img-12-Test-AuthRegister](images/Img-12-Test-AuthRegister.png)
+
+![Img-13-Test-AuthUsers](images/Img-13-Test-AuthUsers.png)
+
 
 ## Referências
 Maven Repository - Auth0 - Java JWT:

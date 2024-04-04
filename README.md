@@ -162,6 +162,12 @@ api.security.token.secret=chaveSecreta
 
 16. Add routes and their permissions in the `securityFilterChain` method of `JJWTSecurityConfig`.
 
+17. Test routes, authentication and authorization with POSTMAN:
+
+![Img-12-Test-AuthRegister](images/Img-12-Test-AuthRegister.png)
+
+![Img-13-Test-AuthUsers](images/Img-13-Test-AuthUsers.png)
+
 
 ## References
 Maven Repository - Auth0 - Java JWT:
